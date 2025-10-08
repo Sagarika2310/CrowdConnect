@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Donations - CrowdConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>CrowdConnect</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="create-campaign.html" class="nav-item">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create Campaign</span>
+            </a>
+            <a href="my-donations.html" class="nav-item active">
+                <i class="fas fa-heart"></i>
+                <span>My Donations</span>
+            </a>
+            <a href="my-campaigns.html" class="nav-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <span>My Campaigns</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="page-title">
+                <h1>My Donations</h1>
+                <p>Your generous contributions to various causes</p>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="User">
+                    <span>John Doe</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <div class="donations-summary">
+                <div class="summary-card">
+                    <i class="fas fa-donate"></i>
+                    <div class="summary-info">
+                        <h3>₹25,500</h3>
+                        <p>Total Donated</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <div class="summary-info">
+                        <h3>12</h3>
+                        <p>Campaigns Supported</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <div class="summary-info">
+                        <h3>8</h3>
+                        <p>Successful Campaigns</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Recent Donations</h2>
+                <div class="filter-options">
+                    <select id="donationFilter">
+                        <option value="all">All Donations</option>
+                        <option value="recent">Recent First</option>
+                        <option value="amount">Highest Amount</option>
+                        <option value="active">Active Campaigns</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="donations-list">
+                <!-- Donation 1 -->
+                <div class="donation-card">
+                    <div class="donation-header">
+                        <div class="campaign-info">
+                            <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?w=100&h=100&fit=crop" alt="Flood Relief">
+                            <div>
+                                <h3>Flood Relief in Kerala</h3>
+                                <p>Emergency Relief • Donated on 15 Nov 2024</p>
+                            </div>
+                        </div>
+                        <div class="donation-amount">
+                            <span class="amount">₹5,000</span>
+                            <span class="status completed">Completed</span>
+                        </div>
+                    </div>
+                    <div class="donation-progress">
+                        <div class="progress-info">
+                            <span>Campaign raised: ₹75,000 of ₹1,00,000</span>
+                            <span>75% funded</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="donation-actions">
+                        <button class="btn-secondary" onclick="shareCampaign('Flood Relief in Kerala')">
+                            <i class="fas fa-share"></i> Share
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i> Receipt
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-eye"></i> View Updates
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Donation 2 -->
+                <div class="donation-card">
+                    <div class="donation-header">
+                        <div class="campaign-info">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=100&h=100&fit=crop" alt="Education">
+                            <div>
+                                <h3>School Supplies for Rural Kids</h3>
+                                <p>Education • Donated on 10 Nov 2024</p>
+                            </div>
+                        </div>
+                        <div class="donation-amount">
+                            <span class="amount">₹2,000</span>
+                            <span class="status active">Active</span>
+                        </div>
+                    </div>
+                    <div class="donation-progress">
+                        <div class="progress-info">
+                            <span>Campaign raised: ₹40,000 of ₹1,00,000</span>
+                            <span>40% funded</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <div class="donation-actions">
+                        <button class="btn-secondary" onclick="shareCampaign('School Supplies for Rural Kids')">
+                            <i class="fas fa-share"></i> Share
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i> Receipt
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-eye"></i> View Updates
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Donation 3 -->
+                <div class="donation-card">
+                    <div class="donation-header">
+                        <div class="campaign-info">
+                            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=100&h=100&fit=crop" alt="Medical">
+                            <div>
+                                <h3>Medical Treatment for Children</h3>
+                                <p>Medical • Donated on 5 Nov 2024</p>
+                            </div>
+                        </div>
+                        <div class="donation-amount">
+                            <span class="amount">₹10,000</span>
+                            <span class="status completed">Completed</span>
+                        </div>
+                    </div>
+                    <div class="donation-progress">
+                        <div class="progress-info">
+                            <span>Campaign raised: ₹4,50,000 of ₹5,00,000</span>
+                            <span>90% funded</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="donation-actions">
+                        <button class="btn-secondary" onclick="shareCampaign('Medical Treatment for Children')">
+                            <i class="fas fa-share"></i> Share
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i> Receipt
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-eye"></i> View Updates
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Donation 4 -->
+                <div class="donation-card">
+                    <div class="donation-header">
+                        <div class="campaign-info">
+                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=100&h=100&fit=crop" alt="Animal Rescue">
+                            <div>
+                                <h3>Animal Rescue Shelter</h3>
+                                <p>Community • Donated on 1 Nov 2024</p>
+                            </div>
+                        </div>
+                        <div class="donation-amount">
+                            <span class="amount">₹1,500</span>
+                            <span class="status active">Active</span>
+                        </div>
+                    </div>
+                    <div class="donation-progress">
+                        <div class="progress-info">
+                            <span>Campaign raised: ₹1,20,000 of ₹2,00,000</span>
+                            <span>60% funded</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="donation-actions">
+                        <button class="btn-secondary" onclick="shareCampaign('Animal Rescue Shelter')">
+                            <i class="fas fa-share"></i> Share
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i> Receipt
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-eye"></i> View Updates
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            document.getElementById('donationFilter').addEventListener('change', function() {
+                showNotification(`Filtered donations by: ${this.options[this.selectedIndex].text}`, 'info');
+            });
+        });
+    </script>
+</body>
+</html>

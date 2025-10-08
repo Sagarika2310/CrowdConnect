@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - CrowdConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>CrowdConnect</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="create-campaign.html" class="nav-item">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create Campaign</span>
+            </a>
+            <a href="my-donations.html" class="nav-item">
+                <i class="fas fa-heart"></i>
+                <span>My Donations</span>
+            </a>
+            <a href="my-campaigns.html" class="nav-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <span>My Campaigns</span>
+            </a>
+            <a href="settings.html" class="nav-item active">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="page-title">
+                <h1>Account Settings</h1>
+                <p>Manage your profile and preferences</p>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="User">
+                    <span>John Doe</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <div class="settings-grid">
+                <!-- Profile Settings -->
+                <div class="settings-section">
+                    <h2><i class="fas fa-user"></i> Profile Information</h2>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label for="profileImage">Profile Picture</label>
+                            <div class="profile-image-upload">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Profile" id="profilePreview">
+                                <div class="upload-controls">
+                                    <input type="file" id="profileImage" accept="image/*" onchange="previewProfileImage(this)">
+                                    <button type="button" class="btn-secondary" onclick="document.getElementById('profileImage').click()">
+                                        <i class="fas fa-camera"></i> Change Photo
+                                    </button>
+                                    <button type="button" class="btn-remove-image" onclick="removeProfileImage()">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" value="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" value="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" value="john.doe@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" value="+91 98765 43210" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" placeholder="Tell us about yourself..." rows="4">Passionate about social causes and making a difference in the community. I believe in the power of collective action.</textarea>
+                        </div>
+
+                        <button type="button" class="btn-primary" onclick="updateProfile()">
+                            <i class="fas fa-save"></i> Update Profile
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Security Settings -->
+                <div class="settings-section">
+                    <h2><i class="fas fa-shield-alt"></i> Security</h2>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" placeholder="Enter current password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" placeholder="Enter new password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                        </div>
+
+                        <button type="button" class="btn-primary" onclick="updatePassword()">
+                            <i class="fas fa-key"></i> Change Password
+                        </button>
+                    </form>
+
+                    <div class="security-features">
+                        <h3>Security Features</h3>
+                        <div class="feature-toggle">
+                            <div class="toggle-info">
+                                <strong>Two-Factor Authentication</strong>
+                                <p>Add an extra layer of security to your account</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="twoFactor">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="feature-toggle">
+                            <div class="toggle-info">
+                                <strong>Email Notifications</strong>
+                                <p>Receive updates about your campaigns and donations</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="emailNotifications" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Settings -->
+                <div class="settings-section">
+                    <h2><i class="fas fa-credit-card"></i> Payment Methods</h2>
+                    <div class="payment-methods">
+                        <div class="payment-method-card">
+                            <div class="method-info">
+                                <i class="fas fa-university"></i>
+                                <div>
+                                    <strong>UPI</strong>
+                                    <p>john.doe@okicici • Primary</p>
+                                </div>
+                            </div>
+                            <button class="btn-secondary">Edit</button>
+                        </div>
+                        <div class="payment-method-card">
+                            <div class="method-info">
+                                <i class="fas fa-credit-card"></i>
+                                <div>
+                                    <strong>Credit Card</strong>
+                                    <p>**** **** **** 1234 • Expires 12/25</p>
+                                </div>
+                            </div>
+                            <button class="btn-secondary">Edit</button>
+                        </div>
+                        <button class="btn-primary" style="width: 100%; margin-top: 1rem;">
+                            <i class="fas fa-plus"></i> Add Payment Method
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notification Settings -->
+                <div class="settings-section">
+                    <h2><i class="fas fa-bell"></i> Notifications</h2>
+                    <div class="notification-settings">
+                        <div class="notification-toggle">
+                            <div class="toggle-info">
+                                <strong>Campaign Updates</strong>
+                                <p>Get notified when campaigns you support have updates</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-toggle">
+                            <div class="toggle-info">
+                                <strong>New Campaigns</strong>
+                                <p>Be the first to know about new campaigns in your interests</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-toggle">
+                            <div class="toggle-info">
+                                <strong>Donation Receipts</strong>
+                                <p>Receive receipts for your donations</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-toggle">
+                            <div class="toggle-info">
+                                <strong>Newsletter</strong>
+                                <p>Receive our monthly newsletter with impact stories</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Actions -->
+                <div class="settings-section danger-zone">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Danger Zone</h2>
+                    <div class="danger-actions">
+                        <div class="danger-action">
+                            <div>
+                                <strong>Delete Account</strong>
+                                <p>Permanently delete your account and all associated data</p>
+                            </div>
+                            <button class="btn-danger" onclick="showDeleteConfirm()">
+                                <i class="fas fa-trash"></i> Delete Account
+                            </button>
+                        </div>
+                        <div class="danger-action">
+                            <div>
+                                <strong>Download Data</strong>
+                                <p>Download all your personal data from CrowdConnect</p>
+                            </div>
+                            <button class="btn-secondary">
+                                <i class="fas fa-download"></i> Download Data
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function updateProfile() {
+            showLoading('Updating profile...');
+            setTimeout(() => {
+                hideLoading();
+                showNotification('Profile updated successfully!', 'success');
+            }, 1500);
+        }
+
+        function updatePassword() {
+            const currentPass = document.getElementById('currentPassword').value;
+            const newPass = document.getElementById('newPassword').value;
+            const confirmPass = document.getElementById('confirmPassword').value;
+
+            if (!currentPass || !newPass || !confirmPass) {
+                showNotification('Please fill all password fields.', 'error');
+                return;
+            }
+
+            if (newPass !== confirmPass) {
+                showNotification('New passwords do not match.', 'error');
+                return;
+            }
+
+            showLoading('Updating password...');
+            setTimeout(() => {
+                hideLoading();
+                showNotification('Password updated successfully!', 'success');
+                // Clear password fields
+                document.getElementById('currentPassword').value = '';
+                document.getElementById('newPassword').value = '';
+                document.getElementById('confirmPassword').value = '';
+            }, 1500);
+        }
+
+        function previewProfileImage(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePreview').src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+                showNotification('Profile picture updated!', 'success');
+            }
+        }
+
+        function removeProfileImage() {
+            document.getElementById('profilePreview').src = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face';
+            document.getElementById('profileImage').value = '';
+            showNotification('Profile picture removed.', 'info');
+        }
+
+        function showDeleteConfirm() {
+            if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                showLoading('Deleting account...');
+                setTimeout(() => {
+                    hideLoading();
+                    showNotification('Account deleted successfully. Redirecting...', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                }, 2000);
+            }
+        }
+
+        // Initialize toggle switches
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggles = document.querySelectorAll('.toggle-switch input');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('change', function() {
+                    const feature = this.closest('.feature-toggle') ? 'security feature' : 'notification';
+                    const action = this.checked ? 'enabled' : 'disabled';
+                    showNotification(`${feature} ${action}`, 'info');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

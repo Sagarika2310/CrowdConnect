@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CrowdConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>CrowdConnect</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="create-campaign.html" class="nav-item">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create Campaign</span>
+            </a>
+            <a href="my-donations.html" class="nav-item">
+                <i class="fas fa-heart"></i>
+                <span>My Donations</span>
+            </a>
+            <a href="my-campaigns.html" class="nav-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <span>My Campaigns</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search campaigns...">
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="User">
+                    <span>John Doe</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+            <div class="welcome-banner">
+                <h1>Welcome back, John!</h1>
+                <p>Ready to make a difference today?</p>
+                <a href="create-campaign.html" class="btn-primary">Start a New Campaign</a>
+            </div>
+
+            <!-- Campaign Grid -->
+            <section class="campaigns-section">
+                <div class="section-header">
+                    <h2>Featured Campaigns</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                
+                <div class="campaign-grid">
+                    <!-- Campaign Card 1 -->
+                    <div class="campaign-card">
+                        <div class="campaign-image">
+                            <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?w=400&h=250&fit=crop" alt="Flood Relief">
+                            <span class="urgent-tag">Urgent</span>
+                        </div>
+                        <div class="campaign-content">
+                            <h3>Flood Relief in Kerala</h3>
+                            <p>Providing immediate assistance to families affected by recent floods in Kerala region.</p>
+                            <div class="campaign-stats">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                                <div class="stats">
+                                    <span><strong>75%</strong> funded</span>
+                                    <span><strong>₹75,000</strong> raised</span>
+                                </div>
+                            </div>
+                            <div class="campaign-actions">
+                                <button class="btn-donate" onclick="showDonationModal()">
+                                    <i class="fas fa-donate"></i> Donate
+                                </button>
+                                <button class="btn-secondary btn-share" onclick="shareCampaign('Flood Relief in Kerala')">
+                                    <i class="fas fa-share"></i> Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campaign Card 2 -->
+                    <div class="campaign-card">
+                        <div class="campaign-image">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=250&fit=crop" alt="Education">
+                            <span class="category-tag">Education</span>
+                        </div>
+                        <div class="campaign-content">
+                            <h3>School Supplies for Rural Kids</h3>
+                            <p>Help us provide books, uniforms, and educational materials for 500 children in rural areas.</p>
+                            <div class="campaign-stats">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 40%"></div>
+                                </div>
+                                <div class="stats">
+                                    <span><strong>40%</strong> funded</span>
+                                    <span><strong>₹40,000</strong> raised</span>
+                                </div>
+                            </div>
+                            <div class="campaign-actions">
+                                <button class="btn-donate" onclick="showDonationModal()">
+                                    <i class="fas fa-donate"></i> Donate
+                                </button>
+                                <button class="btn-interested">
+                                    <i class="fas fa-hands-helping"></i> Offer Help
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campaign Card 3 -->
+                    <div class="campaign-card">
+                        <div class="campaign-image">
+                            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=250&fit=crop" alt="Medical">
+                            <span class="category-tag">Medical</span>
+                        </div>
+                        <div class="campaign-content">
+                            <h3>Medical Treatment for Children</h3>
+                            <p>Funding life-saving treatments for children from low-income families.</p>
+                            <div class="campaign-stats">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 90%"></div>
+                                </div>
+                                <div class="stats">
+                                    <span><strong>90%</strong> funded</span>
+                                    <span><strong>₹4,50,000</strong> raised</span>
+                                </div>
+                            </div>
+                            <div class="campaign-actions">
+                                <button class="btn-donate" onclick="showDonationModal()">
+                                    <i class="fas fa-donate"></i> Donate
+                                </button>
+                                <button class="btn-secondary btn-share" onclick="shareCampaign('Medical Treatment for Children')">
+                                    <i class="fas fa-share"></i> Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Make a Donation</h3>
+                <button class="close-modal" onclick="closeDonationModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="donation-options">
+                    <h4>Select Amount (₹)</h4>
+                    <div class="amount-buttons">
+                        <button class="amount-option">₹500</button>
+                        <button class="amount-option">₹1,000</button>
+                        <button class="amount-option">₹2,000</button>
+                        <button class="amount-option">₹5,000</button>
+                        <button class="amount-option">₹10,000</button>
+                    </div>
+                    <div class="custom-amount">
+                        <input type="number" placeholder="Custom Amount (₹)">
+                    </div>
+                </div>
+                <div class="payment-method">
+                    <h4>Payment Method</h4>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" checked>
+                            <i class="fas fa-university"></i>
+                            UPI
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment">
+                            <i class="fas fa-credit-card"></i>
+                            Credit/Debit Card
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment">
+                            <i class="fas fa-mobile-alt"></i>
+                            Net Banking
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment">
+                            <i class="fas fa-wallet"></i>
+                            Paytm
+                        </label>
+                    </div>
+                </div>
+                <button class="btn-primary btn-confirm">Confirm Donation</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

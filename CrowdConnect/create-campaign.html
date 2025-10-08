@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Campaign - CrowdConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>CrowdConnect</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="create-campaign.html" class="nav-item active">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create Campaign</span>
+            </a>
+            <a href="my-donations.html" class="nav-item">
+                <i class="fas fa-heart"></i>
+                <span>My Donations</span>
+            </a>
+            <a href="my-campaigns.html" class="nav-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <span>My Campaigns</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="page-title">
+                <h1>Create New Campaign</h1>
+                <p>Start your journey to make a difference</p>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="User">
+                    <span>John Doe</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Campaign Creation Form -->
+        <div class="form-page">
+            <div class="form-steps">
+                <div class="step active">1</div>
+                <div class="step">2</div>
+                <div class="step">3</div>
+            </div>
+
+            <form class="campaign-form" id="campaignForm">
+                <div class="form-section">
+                    <h2>Campaign Basics</h2>
+                    <div class="form-group">
+                        <label for="campaignTitle">Campaign Title</label>
+                        <input type="text" id="campaignTitle" placeholder="e.g., Flood Relief for Kerala Families" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="campaignCategory">Category</label>
+                        <select id="campaignCategory" required>
+                            <option value="">Select a category</option>
+                            <option value="emergency">Emergency Relief</option>
+                            <option value="education">Education</option>
+                            <option value="medical">Medical</option>
+                            <option value="environment">Environment</option>
+                            <option value="community">Community Development</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="campaignGoal">Funding Goal (₹)</label>
+                        <input type="number" id="campaignGoal" placeholder="5000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="campaignDeadline">Campaign Deadline</label>
+                        <input type="date" id="campaignDeadline" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Campaign Story</h2>
+                    <div class="form-group">
+                        <label for="campaignDescription">Tell your story</label>
+                        <textarea id="campaignDescription" placeholder="Share the details of your cause, why it matters, and how the funds will be used..." rows="6" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Campaign Media</h2>
+                    <div class="form-group">
+                        <label for="campaignImage">Cover Image</label>
+                        <div class="image-upload" id="imageUploadArea">
+                            <input type="file" id="campaignImage" accept="image/*">
+                            <div class="upload-placeholder" id="uploadPlaceholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Click to upload or drag and drop</p>
+                                <span>PNG, JPG, GIF up to 10MB</span>
+                            </div>
+                            <div class="image-preview" id="imagePreview">
+                                <img id="previewImage" src="" alt="Preview">
+                                <button type="button" class="btn-remove-image" onclick="removeImage()">
+                                    <i class="fas fa-times"></i> Remove Image
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Support Type</h2>
+                    <div class="support-options">
+                        <label class="support-option">
+                            <input type="checkbox" name="supportType" value="financial" checked>
+                            <div class="option-card">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <h4>Financial Donations</h4>
+                                <p>Receive monetary contributions</p>
+                            </div>
+                        </label>
+                        <label class="support-option">
+                            <input type="checkbox" name="supportType" value="services">
+                            <div class="option-card">
+                                <i class="fas fa-tools"></i>
+                                <h4>Services</h4>
+                                <p>Receive professional services (eg. volunteers)</p>
+                            </div>
+                        </label>
+                        <label class="support-option">
+                            <input type="checkbox" name="supportType" value="resources">
+                            <div class="option-card">
+                                <i class="fas fa-box-open"></i>
+                                <h4>Resources</h4>
+                                <p>Receive physical goods and materials</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="saveDraft()">Save Draft</button>
+                    <button type="submit" class="btn-primary">Launch Campaign</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Image Upload Functionality
+        function setupImageUpload() {
+            const uploadArea = document.getElementById('imageUploadArea');
+            const fileInput = document.getElementById('campaignImage');
+            const uploadPlaceholder = document.getElementById('uploadPlaceholder');
+            const imagePreview = document.getElementById('imagePreview');
+            const previewImage = document.getElementById('previewImage');
+            
+            if (uploadArea && fileInput) {
+                // Click to upload
+                uploadArea.addEventListener('click', function(e) {
+                    if (e.target !== fileInput) {
+                        fileInput.click();
+                    }
+                });
+                
+                // File input change
+                fileInput.addEventListener('change', function(e) {
+                    previewImageHandler(this);
+                });
+                
+                // Drag and drop
+                uploadArea.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    this.classList.add('dragover');
+                });
+                
+                uploadArea.addEventListener('dragleave', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('dragover');
+                });
+                
+                uploadArea.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('dragover');
+                    
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0 && files[0].type.match('image.*')) {
+                        fileInput.files = files;
+                        previewImageHandler(fileInput);
+                    } else {
+                        showNotification('Please drop a valid image file.', 'error');
+                    }
+                });
+            }
+        }
+
+        function previewImageHandler(input) {
+            const uploadPlaceholder = document.getElementById('uploadPlaceholder');
+            const imagePreview = document.getElementById('imagePreview');
+            const previewImage = document.getElementById('previewImage');
+            
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                
+                // Check file type
+                if (!file.type.match('image.*')) {
+                    showNotification('Please select a valid image file (PNG, JPG, GIF).', 'error');
+                    return;
+                }
+                
+                // Check file size (10MB limit)
+                if (file.size > 10 * 1024 * 1024) {
+                    showNotification('Image size should be less than 10MB.', 'error');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    uploadPlaceholder.style.display = 'none';
+                    imagePreview.style.display = 'block';
+                    showNotification('Image uploaded successfully!', 'success');
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeImage() {
+            const uploadPlaceholder = document.getElementById('uploadPlaceholder');
+            const imagePreview = document.getElementById('imagePreview');
+            const fileInput = document.getElementById('campaignImage');
+            
+            fileInput.value = '';
+            uploadPlaceholder.style.display = 'flex';
+            imagePreview.style.display = 'none';
+            showNotification('Image removed.', 'info');
+        }
+
+        // Form submission
+        function createCampaign() {
+            const title = document.getElementById('campaignTitle').value;
+            const goal = document.getElementById('campaignGoal').value;
+            
+            showLoading('Launching your campaign...');
+            
+            setTimeout(() => {
+                hideLoading();
+                showNotification('Campaign launched successfully!', 'success');
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
+            }, 2000);
+        }
+
+        function saveDraft() {
+            showNotification('Draft saved successfully!', 'success');
+        }
+
+        // Loading Indicator
+        function showLoading(message = 'Loading...') {
+            hideLoading();
+            
+            const loader = document.createElement('div');
+            loader.className = 'loading-overlay';
+            loader.innerHTML = `
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>${message}</p>
+                </div>
+            `;
+            document.body.appendChild(loader);
+        }
+
+        function hideLoading() {
+            const loader = document.querySelector('.loading-overlay');
+            if (loader) {
+                loader.remove();
+            }
+        }
+
+        // Notification System
+        function showNotification(message, type = 'info') {
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notif => notif.remove());
+            
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-${getNotificationIcon(type)}"></i>
+                    <span>${message}</span>
+                </div>
+                <button class="notification-close" onclick="this.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        function getNotificationIcon(type) {
+            const icons = {
+                success: 'check-circle',
+                error: 'exclamation-circle',
+                warning: 'exclamation-triangle',
+                info: 'info-circle'
+            };
+            return icons[type] || 'info-circle';
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setupImageUpload();
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('campaignDeadline').min = today;
+            
+            // Form submission
+            document.getElementById('campaignForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                createCampaign();
+            });
+
+            // Initialize image preview as hidden
+            document.getElementById('imagePreview').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

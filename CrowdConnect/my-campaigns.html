@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Campaigns - CrowdConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>CrowdConnect</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="create-campaign.html" class="nav-item">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create Campaign</span>
+            </a>
+            <a href="my-donations.html" class="nav-item">
+                <i class="fas fa-heart"></i>
+                <span>My Donations</span>
+            </a>
+            <a href="my-campaigns.html" class="nav-item active">
+                <i class="fas fa-hand-holding-usd"></i>
+                <span>My Campaigns</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="page-title">
+                <h1>My Campaigns</h1>
+                <p>Manage and track your fundraising campaigns</p>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="User">
+                    <span>John Doe</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <!-- Campaigns Summary -->
+            <div class="campaigns-summary">
+                <div class="summary-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <div class="summary-info">
+                        <h3>5</h3>
+                        <p>Total Campaigns</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-rupee-sign"></i>
+                    <div class="summary-info">
+                        <h3>₹2,75,000</h3>
+                        <p>Total Raised</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-users"></i>
+                    <div class="summary-info">
+                        <h3>347</h3>
+                        <p>Total Donors</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-trophy"></i>
+                    <div class="summary-info">
+                        <h3>3</h3>
+                        <p>Successful</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaigns Filter -->
+            <div class="section-header">
+                <h2>Your Campaigns</h2>
+                <div class="campaigns-filter">
+                    <select id="campaignStatusFilter">
+                        <option value="all">All Campaigns</option>
+                        <option value="active">Active</option>
+                        <option value="completed">Completed</option>
+                        <option value="draft">Drafts</option>
+                    </select>
+                    <button class="btn-primary" onclick="window.location.href='create-campaign.html'">
+                        <i class="fas fa-plus"></i> New Campaign
+                    </button>
+                </div>
+            </div>
+
+            <!-- Campaigns List -->
+            <div class="campaigns-list">
+                <!-- Active Campaign 1 -->
+                <div class="my-campaign-card active">
+                    <div class="campaign-header">
+                        <div class="campaign-image">
+                            <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?w=200&h=120&fit=crop" alt="Flood Relief">
+                            <span class="status-badge active">Active</span>
+                        </div>
+                        <div class="campaign-info">
+                            <h3>Flood Relief in Kerala</h3>
+                            <p class="campaign-description">Providing immediate assistance to families affected by recent floods in Kerala region with food, shelter, and medical aid.</p>
+                            <div class="campaign-meta">
+                                <span><i class="fas fa-tag"></i> Emergency Relief</span>
+                                <span><i class="fas fa-calendar"></i> Ends: 30 Dec 2024</span>
+                                <span><i class="fas fa-users"></i> 187 donors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-stats">
+                        <div class="progress-section">
+                            <div class="progress-info">
+                                <span class="raised">₹75,000 raised</span>
+                                <span class="goal">of ₹1,00,000 goal</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                            <div class="progress-percentage">75%</div>
+                        </div>
+                        <div class="campaign-actions">
+                            <button class="btn-primary" onclick="viewCampaignAnalytics(1)">
+                                <i class="fas fa-chart-line"></i> Analytics
+                            </button>
+                            <button class="btn-secondary" onclick="editCampaign(1)">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn-secondary btn-share" onclick="shareCampaign('Flood Relief in Kerala')">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Campaign 2 -->
+                <div class="my-campaign-card active">
+                    <div class="campaign-header">
+                        <div class="campaign-image">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=200&h=120&fit=crop" alt="Education">
+                            <span class="status-badge active">Active</span>
+                        </div>
+                        <div class="campaign-info">
+                            <h3>School Supplies for Rural Kids</h3>
+                            <p class="campaign-description">Help us provide books, uniforms, and educational materials for 500 children in rural areas of Maharashtra.</p>
+                            <div class="campaign-meta">
+                                <span><i class="fas fa-tag"></i> Education</span>
+                                <span><i class="fas fa-calendar"></i> Ends: 15 Jan 2025</span>
+                                <span><i class="fas fa-users"></i> 89 donors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-stats">
+                        <div class="progress-section">
+                            <div class="progress-info">
+                                <span class="raised">₹40,000 raised</span>
+                                <span class="goal">of ₹1,00,000 goal</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 40%"></div>
+                            </div>
+                            <div class="progress-percentage">40%</div>
+                        </div>
+                        <div class="campaign-actions">
+                            <button class="btn-primary" onclick="viewCampaignAnalytics(2)">
+                                <i class="fas fa-chart-line"></i> Analytics
+                            </button>
+                            <button class="btn-secondary" onclick="editCampaign(2)">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn-secondary btn-share" onclick="shareCampaign('School Supplies for Rural Kids')">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Campaign 1 -->
+                <div class="my-campaign-card completed">
+                    <div class="campaign-header">
+                        <div class="campaign-image">
+                            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=200&h=120&fit=crop" alt="Medical">
+                            <span class="status-badge completed">Completed</span>
+                        </div>
+                        <div class="campaign-info">
+                            <h3>Medical Treatment for Children</h3>
+                            <p class="campaign-description">Funding life-saving treatments and surgeries for children from low-income families across India.</p>
+                            <div class="campaign-meta">
+                                <span><i class="fas fa-tag"></i> Medical</span>
+                                <span><i class="fas fa-calendar"></i> Ended: 15 Oct 2024</span>
+                                <span><i class="fas fa-users"></i> 423 donors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-stats">
+                        <div class="progress-section">
+                            <div class="progress-info">
+                                <span class="raised">₹4,50,000 raised</span>
+                                <span class="goal">of ₹5,00,000 goal</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                            <div class="progress-percentage">90%</div>
+                        </div>
+                        <div class="campaign-actions">
+                            <button class="btn-primary" onclick="viewCampaignAnalytics(3)">
+                                <i class="fas fa-chart-line"></i> Analytics
+                            </button>
+                            <button class="btn-secondary">
+                                <i class="fas fa-download"></i> Report
+                            </button>
+                            <button class="btn-secondary" onclick="createSimilarCampaign()">
+                                <i class="fas fa-copy"></i> Create Similar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Campaign 2 -->
+                <div class="my-campaign-card completed">
+                    <div class="campaign-header">
+                        <div class="campaign-image">
+                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=200&h=120&fit=crop" alt="Animal Rescue">
+                            <span class="status-badge completed">Completed</span>
+                        </div>
+                        <div class="campaign-info">
+                            <h3>Animal Rescue Shelter</h3>
+                            <p class="campaign-description">Building and maintaining a shelter for stray and injured animals in urban areas with medical facilities.</p>
+                            <div class="campaign-meta">
+                                <span><i class="fas fa-tag"></i> Animal Welfare</span>
+                                <span><i class="fas fa-calendar"></i> Ended: 30 Sep 2024</span>
+                                <span><i class="fas fa-users"></i> 156 donors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-stats">
+                        <div class="progress-section">
+                            <div class="progress-info">
+                                <span class="raised">₹1,80,000 raised</span>
+                                <span class="goal">of ₹2,00,000 goal</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                            <div class="progress-percentage">90%</div>
+                        </div>
+                        <div class="campaign-actions">
+                            <button class="btn-primary" onclick="viewCampaignAnalytics(4)">
+                                <i class="fas fa-chart-line"></i> Analytics
+                            </button>
+                            <button class="btn-secondary">
+                                <i class="fas fa-download"></i> Report
+                            </button>
+                            <button class="btn-secondary" onclick="createSimilarCampaign()">
+                                <i class="fas fa-copy"></i> Create Similar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Draft Campaign -->
+                <div class="my-campaign-card draft">
+                    <div class="campaign-header">
+                        <div class="campaign-image">
+                            <div class="draft-placeholder">
+                                <i class="fas fa-edit"></i>
+                                <span>Draft</span>
+                            </div>
+                        </div>
+                        <div class="campaign-info">
+                            <h3>Community Garden Project</h3>
+                            <p class="campaign-description">Creating sustainable community gardens in urban neighborhoods to promote green spaces and local food production.</p>
+                            <div class="campaign-meta">
+                                <span><i class="fas fa-tag"></i> Environment</span>
+                                <span><i class="fas fa-clock"></i> Last edited: 5 days ago</span>
+                                <span><i class="fas fa-info-circle"></i> Draft - Not published</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-stats">
+                        <div class="draft-info">
+                            <p>This campaign is saved as draft. Publish it to start receiving donations.</p>
+                        </div>
+                        <div class="campaign-actions">
+                            <button class="btn-primary" onclick="editCampaign(5)">
+                                <i class="fas fa-edit"></i> Continue Editing
+                            </button>
+                            <button class="btn-secondary" onclick="publishDraft(5)">
+                                <i class="fas fa-paper-plane"></i> Publish
+                            </button>
+                            <button class="btn-danger" onclick="deleteDraft(5)">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State (commented out, shown when no campaigns) -->
+            <!--
+            <div class="empty-state">
+                <i class="fas fa-bullhorn"></i>
+                <h3>No Campaigns Yet</h3>
+                <p>You haven't created any campaigns. Start your first campaign and make a difference!</p>
+                <button class="btn-primary" onclick="window.location.href='create-campaign.html'">
+                    <i class="fas fa-plus"></i> Create Your First Campaign
+                </button>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Campaign management functions
+        function viewCampaignAnalytics(campaignId) {
+            showLoading('Loading campaign analytics...');
+            setTimeout(() => {
+                hideLoading();
+                showNotification(`Analytics loaded for campaign #${campaignId}`, 'success');
+                // In real app, this would open analytics modal or page
+            }, 1500);
+        }
+
+        function editCampaign(campaignId) {
+            showLoading('Opening campaign editor...');
+            setTimeout(() => {
+                hideLoading();
+                showNotification(`Editing campaign #${campaignId}`, 'info');
+                // In real app, this would redirect to edit page
+                window.location.href = 'create-campaign.html?edit=' + campaignId;
+            }, 1000);
+        }
+
+        function publishDraft(campaignId) {
+            if (confirm('Are you sure you want to publish this campaign? It will be visible to the public.')) {
+                showLoading('Publishing campaign...');
+                setTimeout(() => {
+                    hideLoading();
+                    showNotification('Campaign published successfully!', 'success');
+                    // In real app, this would update campaign status and refresh the list
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }, 2000);
+            }
+        }
+
+        function deleteDraft(campaignId) {
+            if (confirm('Are you sure you want to delete this draft? This action cannot be undone.')) {
+                showLoading('Deleting draft...');
+                setTimeout(() => {
+                    hideLoading();
+                    showNotification('Draft deleted successfully', 'success');
+                    // In real app, this would remove the campaign from the list
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1500);
+                }, 1500);
+            }
+        }
+
+        function createSimilarCampaign() {
+            showNotification('Creating new campaign based on template...', 'info');
+            setTimeout(() => {
+                window.location.href = 'create-campaign.html?template=similar';
+            }, 1000);
+        }
+
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filter = document.getElementById('campaignStatusFilter');
+            filter.addEventListener('change', function() {
+                const status = this.value;
+                showNotification(`Showing ${status === 'all' ? 'all' : status} campaigns`, 'info');
+                
+                // In real app, this would filter the campaigns list
+                // For demo, we'll just show a notification
+            });
+        });
+    </script>
+</body>
+</html>

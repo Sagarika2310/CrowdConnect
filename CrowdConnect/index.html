@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowdConnect - Empower Change Together</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>CrowdConnect</span>
+            </div>
+            <div class="nav-links">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#testimonials">Success Stories</a>
+                <button class="btn-secondary" onclick="showLogin()">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <h1 class="hero-title">CrowdConnect</h1>
+                <p class="hero-subtitle">Connecting Compassion with Causes. Empower change through donations, resources, and services for social causes that matter.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>50000+</h3>
+                        <p>Campaigns Funded</p>
+                    </div>
+                    <div class="stat">
+                        <h3>₹1.5Cr+</h3>
+                        <p>Support received</p>
+                    </div>
+                    <div class="stat">
+                        <h3>50K+</h3>
+                        <p>Impact Makers</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-right">
+                <!-- Login Form -->
+                <div class="form-container active" id="loginForm">
+                    <h2>Welcome Back</h2>
+                    <form id="login">
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Login to Your Account</button>
+                    </form>
+                    <p class="form-switch">Don't have an account? <a href="#" onclick="showSignup()">Sign up here</a></p>
+                </div>
+                
+                <!-- Signup Form -->
+                <div class="form-container" id="signupForm">
+                    <h2>Join CrowdConnect</h2>
+                    <form id="signup">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Create Password" required>
+                        </div>
+                        <div class="form-group">
+                            <select>
+                                <option value="">I want to...</option>
+                                <option value="donate">Donate to Causes</option>
+                                <option value="fundraise">Start a Campaign</option>
+                                <option value="both">Both</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary">Create Account</button>
+                    </form>
+                    <p class="form-switch">Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <p>Trusted by organizations across India</p>
+            <div class="trusted-logos">
+                <div class="logo">
+                    <div class="logo-img">PM</div>
+                    <span>PM Cares</span>
+                </div>
+                <div class="logo">
+                    <div class="logo-img">IRC</div>
+                    <span>Indian Red Cross</span>
+                </div>
+                <div class="logo">
+                    <div class="logo-img">GJ</div>
+                    <span>Goonj</span>
+                </div>
+                <div class="logo">
+                    <div class="logo-img">HA</div>
+                    <span>HelpAge India</span>
+                </div>
+                <div class="logo">
+                    <div class="logo-img">CRY</div>
+                    <span>CRY</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2><u>How CrowdConnect Works: </u></h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <h3><i class="fas fa-lightbulb"></i> Start a Campaign</h3>
+                    <p>Share your cause and set your funding goal. Tell your story with images and videos.</p><br>
+                </div>
+                <div class="step-card">
+                    
+                    <h3><i class="fas fa-share-alt"></i> Share the Cause</h3>
+                    
+                    <p>Spread the word on social media and within your network to reach more supporters.</p><br>
+                </div>
+                <div class="step-card">
+                    
+                    <h3><i class="fas fa-hand-holding-heart"></i> Get Support</h3>
+                   
+                    <p>Get donations, resources, or services from people who believe in your cause.</p><br>
+                </div>
+                <div class="step-card">
+                    
+                    <h3><i class="fas fa-chart-line"></i> Make an Impact</h3>
+                    
+                    <p>Use the funds and resources to create real change and update your supporters.</p><br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Success Stories</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"CrowdConnect helped our community raise ₹3,50,000 for flood relief efforts. The platform made it easy to connect with donors who cared."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Sagarika Pramod</h4>
+                        <p>Flood Relief Campaign</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As a donor, I love how transparent CrowdConnect is. I can see exactly where my money is going and the impact it's making."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Nimisha Thoppil</h4>
+                        <p>Regular Donor</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"We received not just funds but also volunteers and resources through CrowdConnect. It's more than just a fundraising platform."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Aishwarya, Green Earth NGO</h4>
+                        <p>Environmental Organization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CrowdConnect</h3>
+                    <p>Connecting people with causes that matter. Together we can make a difference.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Developers</h4>
+                    <p><i class="fas fa-envelope"></i> contact@crowdconnect.com</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#testimonials">Success Stories</a>
+                    <a href="#" onclick="showSignup()">Start a Campaign</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CrowdConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
